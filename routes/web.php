@@ -12,3 +12,5 @@
 */
 
 Route::resource('/siswa', 'SiswaController');
+Route::get("/siswa/{id}/delete", 'SiswaController@delete')->name("siswa.hapus");
+

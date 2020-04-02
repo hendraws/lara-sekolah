@@ -24,9 +24,9 @@
             </div>
         </div>
         @if(session('sukses'))
-            <div class="alert alert-primary" role="alert">
-                {{session('sukses')}}
-            </div>
+        <div class="alert alert-primary" role="alert">
+            {{session('sukses')}}
+        </div>
         @endif
         <div class="row">
             <table class="table">
@@ -52,8 +52,8 @@
                         <td>{{$data->agama}}</td>
                         <td>{{$data->alamat}}</td>
                         <td>
-                            <a href="" class="btn btn-info">edit</a>
-                            <a href="" class="btn btn-danger">hapus</a>
+                            <a href="{{route('siswa.edit',$data->id)}}" class="btn btn-info">edit</a>
+                            <a href="{{route('siswa.hapus',$data->id)}}" class="btn btn-danger" onclick="return confirm('apakah anda yakin')">hapus</a>
                         </td>
                     </tr>
                     @endforeach
