@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){
+    return view('welcome');
+});
 
 Route::resource('/siswa', 'SiswaController');
 Route::get("/siswa/{id}/delete", 'SiswaController@delete')->name("siswa.hapus");
