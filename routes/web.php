@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return view('welcome');
-});
 
+
+Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 Route::resource('/siswa', 'SiswaController');
 Route::get("/siswa/{id}/delete", 'SiswaController@delete')->name("siswa.hapus");
 
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
