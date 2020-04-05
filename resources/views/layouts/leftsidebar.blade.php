@@ -2,8 +2,8 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="{{route('dashboard.index')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="{{route('siswa.index')}}" class=""><i class="lnr lnr-code"></i> <span>Siswa</span></a></li>
+                <li><a href="{{route('dashboard.index')}}" class="{{ (request()->is('dashboard*')) ? 'active' : '' }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{route('siswa.index')}}" class="{{ (request()->is('siswa*')) ? 'active' : '' }}"><i class="fa fa-address-book"></i> <span>Siswa</span></a></li>
                 <!-- <li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
                 <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
                 <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>

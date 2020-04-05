@@ -48,7 +48,9 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $siswa = Siswa::find($id);
+
+        return view('siswa.show', compact('siswa'));
     }
 
     /**
@@ -73,9 +75,14 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $siswa = Siswa::find($id);
-        // dd($siswa);
         $siswa->update($request->all());
+        if($request->hasFile('avatar')){
+            $request->file('avatar')->move('admin/assets/img/',$request->file('avatar')->getClientOriginalName());
+            $siswa->avatar = $request->file('avatar')->getClientOriginalName();
+            $siswa->save();
+        }
         return redirect('/siswa')->with('sukses', 'Data Berhasil DIedit');        
     }
 

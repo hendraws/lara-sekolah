@@ -11,12 +11,13 @@
 |
 */
 
-
-Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
-Route::resource('/siswa', 'SiswaController');
-Route::get("/siswa/{id}/delete", 'SiswaController@delete')->name("siswa.hapus");
-
-
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
+    Route::resource('/siswa', 'SiswaController');
+    Route::get("/siswa/{id}/delete", 'SiswaController@delete')->name("siswa.hapus");
+    Route::get('/', 'HomeController@index')->name('home');
+
+});

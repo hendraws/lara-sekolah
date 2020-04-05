@@ -39,9 +39,9 @@ Siswa
                         @foreach($data_siswa as $data)
                         <tr>
                             <th scope="row">{{$no++}}</th>
-                            <td>{{$data->nama_depan}}</td>
+                            <td><a href="{{route('siswa.show',$data->id)}}">{{$data->nama_depan}}</a></td>
                             <td>{{$data->nama_belakang}}</td>
-                            <td>{{$data->jenis_kelamin}}</td>
+                            <td>{{($data->jenis_kelamin == 'l') ? 'Laki - Laki' : 'Perempuan'}}</td>
                             <td>{{$data->agama}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>
